@@ -1,0 +1,3 @@
+# Core numerics and plotting — the only runtime dependencies
+numpy>=1.24
+matplotlib>=3.7
