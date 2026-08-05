@@ -280,16 +280,24 @@ class TornadoState:
         return kinetic_energy(self.u, self.v, self.w, self.rho,
                               self.dx, self.dy, self.dz)
 
-    def derive(self, T=None, mass_loading=None, u=None, v=None,
+    def derive(self, T=None, mass_loading=None, u=None, v=None, w_base=None,
                label=None, notes=""):
-        """Produce a new state with selected fields replaced."""
+        """
+        Produce a new state with selected fields replaced.
+
+        `w_base` is the dynamically-forced (vortex-stretching) updraft, kept
+        separate from the buoyancy-driven part. Thermodynamic interventions
+        leave it alone; interventions that act on the *dynamics* - surface
+        drag, momentum injection - override it, since throttling the radial
+        inflow throttles the stretching that drives it.
+        """
         return TornadoState(
             self.X, self.Y, self.Z, self.dx, self.dy, self.dz,
             T=self.T if T is None else T,
             mass_loading=self.mass_loading if mass_loading is None else mass_loading,
             u=self.u if u is None else u,
             v=self.v if v is None else v,
-            w_base=self.w_base,
+            w_base=self.w_base if w_base is None else w_base,
             label=label or self.label,
             notes=notes,
         )
@@ -455,8 +463,16 @@ def run_cryogenic_cooling(state, target_zone="inflow", cooling_capacity_kelvin=C
 def energy_cost_joules(method_name, state):
     """
     Real energy/resource cost of each intervention, normalized to joules so the
-    three methods can be compared on one axis.
+    methods can be compared on one axis.
+
+    Strategies defined outside this module report their own cost by setting an
+    `energy_cost_j` attribute on the state they return; that always wins over
+    the built-in dispatch below.
     """
+    explicit = getattr(state, "energy_cost_j", None)
+    if explicit is not None:
+        return float(explicit)
+
     if method_name == "Microwave Beaming":
         return MICROWAVE_GIGAWATTS * 1e9 * INTERVENTION_DURATION_S
     if method_name == "Cryogenic Cooling":
@@ -496,7 +512,14 @@ def feasibility_score(method_name, state, vort_reduction_pct):
 
 
 def resource_scale(method_name, state):
-    """Human-readable statement of the resources the method demands."""
+    """
+    Human-readable statement of the resources the method demands. Externally
+    defined strategies supply their own via a `resource_note` attribute.
+    """
+    explicit = getattr(state, "resource_note", None)
+    if explicit is not None:
+        return str(explicit)
+
     if method_name == "Microwave Beaming":
         gw = MICROWAVE_GIGAWATTS
         return f"{gw:.0f} GW beam ({gw/1.0:.0f}x a large nuclear reactor)"
