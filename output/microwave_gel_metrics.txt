@@ -1,0 +1,11 @@
+MICROWAVE HEATING + POLYACRYLATE GEL DISRUPTION TEST
+======================================================================
+
+Baseline KE:       613,765,217.28 J
+After heating:     609,714,220.96 J (0.7% loss)
+Final (+ gel):     520,449,894.02 J (15.2% total loss)
+
+Baseline vorticity:  1.3465 1/s
+Final vorticity:     1.0232 1/s (76.0% remaining)
+
+Effectiveness: ✗ WEAK EFFECT
