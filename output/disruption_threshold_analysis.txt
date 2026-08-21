@@ -1,0 +1,25 @@
+TORNADO DISRUPTION THRESHOLD ANALYSIS
+================================================================================
+
+Baseline KE:  613,765,217 J
+Baseline vorticity: 1.3465 1/s
+
+RESULTS:
+
+25% energy loss:
+  Vorticity retained: 75.0%
+  State: WEAKENED
+
+50% energy loss:
+  Vorticity retained: 50.0%
+  State: SEVERELY DISRUPTED
+
+75% energy loss:
+  Vorticity retained: 25.0%
+  State: SEVERELY DISRUPTED
+
+90% energy loss:
+  Vorticity retained: 10.0%
+  State: COLLAPSED
+
+CRITICAL THRESHOLD: 50% energy loss
