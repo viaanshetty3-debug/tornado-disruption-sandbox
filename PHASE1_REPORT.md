@@ -145,16 +145,58 @@ It is not a machine, and it protects a fixed place rather than chasing storms.
 ## 5. The caveat that could invert all of it
 
 Changing the swirl-to-inflow balance does not slide a tornado down a smooth
-ramp. It moves it across a **bifurcation**. As the corner-flow swirl ratio
-rises through roughly 0.4–1.0, laboratory vortex chambers show the flow jump
-from single-cell, to a breakdown bubble, to two-cell, to multiple suction
-vortices — and two-cell and multi-vortex states can carry *higher* peak
-near-surface winds than the single-cell state they replaced.
+ramp. It moves it across a **bifurcation**. As the corner-flow swirl ratio S
+rises, laboratory vortex chambers show the flow jump from single-cell, to a
+breakdown bubble, to two-cell, to multiple suction vortices — and two-cell
+and multi-vortex states can carry *higher* peak near-surface winds than the
+single-cell state they replaced.
 
-An intervention that pushes the swirl ratio the wrong way, or overshoots, can
-intensify the damage swath. Nothing in this repo can tell you which side of
-the bifurcation a given tornado is on: there is no time integration, no
-boundary layer, no pressure solver.
+When this report was first written that paragraph was a qualitative claim
+from general familiarity with the literature, without checked citations.
+Web search (`phase1_swirl_ratio_sensitivity.py` v2) subsequently located the
+actual regime boundaries and confirmed the claim is real, not a hedge:
+
+| S range | regime | source |
+|---|---|---|
+| 0 – 0.4 | single-cell | Church, Snow, Baker & Agee (1979), *J. Atmos. Sci.* 36 |
+| 0.4 – 0.45 | breakdown bubble forms aloft | Church et al. (1979) |
+| 0.45 – 0.7 | breakdown bubble descends to ground (critical S ≈ 0.45) | Lewellen, Lewellen & Sykes (2000), *J. Atmos. Sci.* 57 |
+| 0.7 – 0.8 | two-cell vortex established | Church et al. (1979) |
+| 0.8 – 3+ | multi-vortex, 2 sub-vortices at S≈0.8 rising toward ~6 near S≈3 | multi-vortex literature (Fiedler/Rotunno-line studies) |
+
+Church et al. also report a distinction the earlier draft of this report
+did not make: the vortex's **domain-scale** maximum tangential velocity
+*decreases* with S once the flow is turbulent (S-dependence is weak in that
+regime). The quantity that goes up across the S≈0.45–0.8 transition is
+different — **near-surface / corner-flow peak wind**, the one that actually
+sets damage. Crowell, White & Wicker (2013/2014, *J. Wind Eng. Ind. Aerodyn.*)
+quantify that corner-flow amplification: near-surface winds exceeding the
+"thermodynamic speed limit" baseline by 21% (large, high-swirl vortices) up
+to 59% (small, low-swirl vortices).
+
+So Route 2/3's Burgers-balance argument (peak wind ∝ Γ√α, section 3) is a
+decent model of the domain-scale quantity, which is the one that falls
+smoothly as inflow is blocked — but it is silent on the corner-flow quantity,
+which is the one that can rise. **A roughness ring that only partially blocks
+inflow risks parking the storm's local S inside the 0.45–0.8 transition band
+rather than pushing it out the other side**, which is a real way for this
+intervention to make things worse, not just fail to help.
+
+Nothing in this repo's sandbox model can place a real tornado on this curve:
+there is no time integration, no boundary layer, no pressure solver. Nor can
+any existing external instrument read a real storm's corner-flow swirl ratio
+in real time with the precision this requires — that instrumentation gap,
+not the civil engineering, is the actual blocker for the roughness-ring
+route (`phase1_swirl_ratio_sensitivity.py`, section "what this changes").
+
+*Caveat on the caveat:* direct fetch of the source papers (arXiv, AMS
+Journals, Springer, NOAA repository) was blocked by this environment's
+network egress policy; the numbers above come from search-engine summaries
+of those papers, not the primary text. They converged consistently across
+several independent searches, which is reasonable grounds for confidence in
+the regime boundaries — but they are secondhand, and the exact shape of the
+near-surface peak-wind curve *within* each regime is still not digitized
+data. That is what the chamber experiment below is for.
 
 ---
 
