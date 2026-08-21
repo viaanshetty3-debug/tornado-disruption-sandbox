@@ -1,5 +1,19 @@
 # Tornado Disruptor Machine - Technical Specification v0.1
 
+> **SUPERSEDED — see `PHASE1_REPORT.md`.**
+>
+> The Phase 1 momentum budget shows this design cannot work. Against a real
+> EF4 the tower is short by ~10⁶× as specified (~10⁴× at its physical power
+> ceiling), and the parent storm regenerates kinetic energy ~24,000× faster
+> than the tower injects it. The spec also contains a unit error: "800 kg/s
+> air injection" should be ~16 kg/s (800 m³/min × 1.225 kg/m³).
+>
+> The model results this spec was built on were definitional rather than
+> empirical — scaling velocity by 0.7 yields a 51% energy drop by the
+> definition of kinetic energy, not because a vortex was destabilised.
+>
+> Retained as a record of the concept and its costing.
+
 ## Executive Summary
 
 Based on the sandbox model analysis, this document specifies the requirements for a machine to disrupt tornadoes in the field using reverse-rotation torque injection.
