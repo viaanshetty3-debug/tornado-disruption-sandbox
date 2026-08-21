@@ -1,0 +1,16 @@
+REVERSE ROTATION TORQUE + DRAG FORCE DISRUPTION TEST
+======================================================================
+
+Parameters:
+  Reverse torque strength: 0.8
+  Drag coefficient:        0.15
+
+Baseline KE:       613,765,217.28 J
+After torque:      29,503,022.99 J (95.2% loss)
+Final (+ drag):    21,315,934.11 J (96.5% total loss)
+
+Baseline vorticity:  1.3465 1/s
+Final vorticity:     0.3198 1/s (23.8% remaining)
+
+Effectiveness: ✓ DISRUPTS VORTEX (>50% threshold)
+✓ MEETS 50% THRESHOLD FOR DISRUPTION
