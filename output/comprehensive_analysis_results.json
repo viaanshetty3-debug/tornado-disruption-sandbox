@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Reverse Torque Optimization",
+    "ke_final": 29503022.99106589,
+    "vort_retained": 27.94364196100207,
+    "energy_loss": 95.1931093257759,
+    "disrupted": "True",
+    "param": "strength=0.8"
+  },
+  {
+    "name": "Reverse Torque Optimization",
+    "ke_final": 59933345.610283636,
+    "vort_retained": 36.66427180048046,
+    "energy_loss": 90.23513488172506,
+    "disrupted": "True",
+    "param": "strength=0.7"
+  },
+  {
+    "name": "Reverse Torque Optimization",
+    "ke_final": 102535797.27718846,
+    "vort_retained": 45.537426604024596,
+    "energy_loss": 83.2939706600539,
+    "disrupted": "True",
+    "param": "strength=0.6"
+  },
+  {
+    "name": "Hybrid Methods",
+    "ke_final": 127421406.17334206,
+    "vort_retained": 49.052222087605934,
+    "energy_loss": 79.23938949521757,
+    "disrupted": "True",
+    "param": "Torque(0.5) + Drag(0.1)"
+  },
+  {
+    "name": "Reverse Torque Optimization",
+    "ke_final": 157310377.9917803,
+    "vort_retained": 54.502468986228834,
+    "energy_loss": 74.36961666076242,
+    "disrupted": "True",
+    "param": "strength=0.5"
+  },
+  {
+    "name": "Reverse Torque Optimization",
+    "ke_final": 224257087.75405926,
+    "vort_retained": 63.52968225560334,
+    "energy_loss": 63.46207288385061,
+    "disrupted": "True",
+    "param": "strength=0.4"
+  },
+  {
+    "name": "Hybrid Methods",
+    "ke_final": 272521455.2974187,
+    "vort_retained": 64.03009475357152,
+    "energy_loss": 55.598419782547936,
+    "disrupted": "True",
+    "param": "Torque(0.4) + Pressure(30)"
+  },
+  {
+    "name": "Targeted Disruption",
+    "ke_final": 301995954.7216673,
+    "vort_retained": 64.60722792940929,
+    "energy_loss": 50.79617641742741,
+    "disrupted": "True",
+    "param": "Altitude band (50-150m, 70%)"
+  },
+  {
+    "name": "Reverse Torque Optimization",
+    "ke_final": 303375926.5640254,
+    "vort_retained": 72.60210845009115,
+    "energy_loss": 50.57133932931844,
+    "disrupted": "True",
+    "param": "strength=0.3"
+  },
+  {
+    "name": "Targeted Disruption",
+    "ke_final": 516680994.4167609,
+    "vort_retained": 39.66506610952723,
+    "energy_loss": 15.817811132002957,
+    "disrupted": "False",
+    "param": "Core-only torque (r<20m, 80%)"
+  },
+  {
+    "name": "Novel Mechanisms",
+    "ke_final": 779584572.060948,
+    "vort_retained": 101.05360162870127,
+    "energy_loss": -27.01674029619088,
+    "disrupted": "False",
+    "param": "Vertical shear (0.8)"
+  },
+  {
+    "name": "Novel Mechanisms",
+    "ke_final": 842842835.0177906,
+    "vort_retained": 100.80157943350821,
+    "energy_loss": -37.32333004351756,
+    "disrupted": "False",
+    "param": "Pressure pulse (strength=50)"
+  }
+]
